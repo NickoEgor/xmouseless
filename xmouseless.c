@@ -91,6 +91,7 @@ void move_relative(float x, float y) {
     mouseinfo.y += y;
     XWarpPointer(dpy, None, root, 0, 0, 0, 0,
             (int) mouseinfo.x, (int) mouseinfo.y);
+    XTestFakeMotionEvent(dpy, -1, (int)mouseinfo.x, (int)mouseinfo.y, CurrentTime);
     XFlush(dpy);
 }
 
